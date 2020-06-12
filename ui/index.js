@@ -81,12 +81,12 @@ const playAlarm = () => {
 }
 
 document.getElementById('start').addEventListener('click', () => {
+    app.innerHTML = ''
     setInterval(async () => {
         const app = document.getElementById('app')
         const results = await makeRequest()
         const itemsToAppend = formatResults(results)
         if (itemsToAppend) {
-            app.innerHTML = ''
             app.innerHTML = itemsToAppend + app.innerHTML
             playAlarm()
             // createNotification('KAP', 'Yeni bildirim var')
