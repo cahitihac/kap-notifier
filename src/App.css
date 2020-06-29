@@ -5,10 +5,10 @@
 }
 
 .box {
-  width: 100%;
+  width: 99%;
   height: 100%;
-  background-color: #f0f2f5;
-  margin-top: 10px;
+  background-color:  #E5E7E9;
+  margin: 10px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -16,10 +16,14 @@
 
 .time {
   width: 100px;
-  font-weight: bold;
+  padding-left: 5px;
 }
 
 .notification {
   width: 100%;
-  padding-top: 8px;
+  padding-left: 10px;
+}
+
+.bold {
+  font-weight: bold;
 }
