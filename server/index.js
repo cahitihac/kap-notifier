@@ -1,12 +1,19 @@
+// const path = require('path')
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
 const app = express()
 
+// const publicPath = path.join(__dirname, '..', 'build')
+
 let disclosureList = []
 let maxDisclosureIndex = 0
 
 app.use(cors())
+// app.use(express.static(publicPath))
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(publicPath, 'index.html'))
+// })
 app.get('/', async (req, res) => {
     const { afterDisclosureIndex } = req.query
 

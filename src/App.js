@@ -26,6 +26,9 @@ class App extends Component {
               <p className="bold">Gösterim Zamanı</p>
               <p>{`${responseTime.getHours()}:${responseTime.getMinutes()}:${responseTime.getSeconds()}`}</p>
             </div>
+            <div>
+              <p>{result.basic.stockCodes || result.basic.relatedStocks}</p>
+            </div>
             <div className="notification">
               <div>
                 <p>{result.basic.companyName}</p>
@@ -57,7 +60,10 @@ class App extends Component {
       const results = await this.makeRequest();
       if (results.length > 0) {
         this.playAlarm();
-        this.setState({ disclosures: [...results, ...disclosures] });
+        this.setState({
+          disclosures: [...results, ...disclosures],
+          responseTime: new Date()
+        });
       }
     }, 2000);
   };
