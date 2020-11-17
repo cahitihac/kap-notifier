@@ -17,6 +17,9 @@
 .time {
   width: 100px;
   padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 .notification {
@@ -26,4 +29,15 @@
 
 .bold {
   font-weight: bold;
+}
+
+.start {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.stockCodes {
+  max-width: 75px;
+  height: auto;
 }

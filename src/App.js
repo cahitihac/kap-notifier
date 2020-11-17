@@ -26,7 +26,8 @@ class App extends Component {
               <p className="bold">Gösterim Zamanı</p>
               <p>{`${responseTime.getHours()}:${responseTime.getMinutes()}:${responseTime.getSeconds()}`}</p>
             </div>
-            <div>
+            <div className="stockCodes">
+              <p className="bold">İlgili Hisseler</p>
               <p>{result.basic.stockCodes || result.basic.relatedStocks}</p>
             </div>
             <div className="notification">
@@ -48,9 +49,11 @@ class App extends Component {
         );
       })
     ) : (
-      <a href="#" onClick={this.startPolling}>
-        Başlatmak için buraya tıklayın
-      </a>
+      <div className="start">
+        <a href="#" onClick={this.startPolling}>
+          Başlamak için buraya tıklayın
+        </a>
+      </div>
     );
   }
 
@@ -110,7 +113,7 @@ class App extends Component {
 
   playAlarm = () => {
     const snd = new Audio(
-      "https://notificationsounds.com/soundfiles/df877f3865752637daa540ea9cbc474f/file-sounds-1106-serious-strike.mp3"
+      "definite-555.mp3"
     );
     snd.play();
   };
