@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
+const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,9 @@ class App extends Component {
       disclosures.map((result) => {
         return (
           <div className="box" key={result.basic.disclosureIndex}>
+            <div className="title">
+              <p>#{result.basic.disclosureIndex}</p>
+            </div>
             <div className="time">
               <p className="bold">Bildirim Zamanı</p>
               <p>{result.basic.publishDate.replace("Bugün", "")}</p>
@@ -38,6 +43,7 @@ class App extends Component {
                 <a
                   href={`https://www.kap.org.tr/tr/Bildirim/${result.basic.disclosureIndex}`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {result.basic.summary && result.basic.summary.length > 1
                     ? result.basic.summary
@@ -50,9 +56,9 @@ class App extends Component {
       })
     ) : (
       <div className="start">
-        <a href="#" onClick={this.startPolling}>
+        <button className="link-button" onClick={this.startPolling}>
           Başlamak için buraya tıklayın
-        </a>
+        </button>
       </div>
     );
   }
@@ -76,10 +82,10 @@ class App extends Component {
     const afterDisclosureIndex = this.getLastDisclosureIndex();
     const requestURL =
       !isFirstVisit && afterDisclosureIndex
-        ? `http://localhost:3003?afterDisclosureIndex=${parseInt(
+        ? `${SERVER_API_URL}?afterDisclosureIndex=${parseInt(
             afterDisclosureIndex
           )}`
-        : "http://localhost:3003";
+        : SERVER_API_URL;
 
     this.setState({ isFirstVisit: false });
 

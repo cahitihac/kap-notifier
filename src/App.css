@@ -4,6 +4,20 @@
   flex-grow: 1;
 }
 
+.link-button {
+  background-color: #E5E7E9;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .box {
   width: 99%;
   height: 100%;
@@ -12,6 +26,14 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 10px !important;
+  position: absolute;
+  margin-top: -110px;
 }
 
 .time {
